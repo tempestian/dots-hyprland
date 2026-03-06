@@ -70,3 +70,17 @@ fi
 v gsettings set org.gnome.desktop.interface font-name 'Google Sans Flex Medium 11 @opsz=11,wght=500'
 v gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 v kwriteconfig6 --file kdeglobals --group KDE --key widgetStyle Darkly
+
+printf "${STY_CYAN}[./setup]: Installing/Updating Laptop Manager for HP...${STY_RST}\n"
+LM_TEMP_DIR=$(mktemp -d)
+
+if git clone https://github.com/yunusemreyl/LaptopManagerForHP.git "$LM_TEMP_DIR"; then
+    pushd "$LM_TEMP_DIR" > /dev/null
+    chmod +x install.sh
+    sudo ./install.sh
+    popd > /dev/null
+    rm -rf "$LM_TEMP_DIR"
+    printf "${STY_GREEN}[./setup]: Laptop Manager for HP installed successfully.${STY_RST}\n"
+else
+    printf "${STY_RED}[./setup]: Failed to clone Laptop Manager repo!${STY_RST}\n"
+fi

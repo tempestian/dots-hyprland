@@ -110,6 +110,11 @@ Item {
             }
         }
     }
+    
+    HpFanWidget {
+        Layout.fillWidth: true
+        visible: ready
+    }
 
     ToggleDialog {
         shownPropertyString: "showAudioOutputDialog"

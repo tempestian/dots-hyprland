@@ -36,6 +36,18 @@ Rectangle {
             "icon": "schedule",
             "widget": "pomodoro/PomodoroWidget.qml"
         },
+	{
+            "type": "fan",
+            "name": Translation.tr("Fan"),
+            "icon": "mode_fan",
+            "widget": "HpFanWidget.qml"
+        },
+	{
+            "type": "rgb",
+            "name": Translation.tr("RGB"),
+            "icon": "light_mode",
+            "widget": "KbdRgbWidget.qml"
+        },
     ]
 
     Behavior on implicitHeight {
